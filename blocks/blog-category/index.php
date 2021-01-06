@@ -37,13 +37,13 @@ function render_dynamic_block($attributes) {
 ?>
   <div class="block-book-details">
       <div class="posts-by-category">
+          <h3>Posts from category:  <?php echo $category; ?></h3>
           <?php
-          echo $category;
           $args = array( 'posts_per_page' => -1, 'category_name' => $category );
           $myposts = get_posts( $args );
           foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
               <li>
-                  <a href="<?php the_permalink(); ?>"><?php echo $post->post_title ?></a>
+                  <a href="<?php echo get_post_permalink($post->ID) ?>"><?php echo $post->post_title ?></a>
               </li>
           <?php endforeach; ?>
       </div>

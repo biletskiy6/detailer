@@ -198,7 +198,6 @@ registerBlockType('davidyeiser-detailer/blog-category', {
             )
         }
     },
-
     // No save, dynamic block
     save: props => {
         return null
