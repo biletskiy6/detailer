@@ -41,7 +41,7 @@ function render_dynamic_block($attributes) {
           <?php
           $args = array( 'posts_per_page' => -1, 'category_name' => $category );
           $myposts = get_posts( $args );
-          foreach ( $myposts as $post ) : setup_postdata( $post ); ?>
+          foreach ( $myposts as $post ): ?>
               <li>
                   <a href="<?php echo get_post_permalink($post->ID) ?>"><?php echo $post->post_title ?></a>
               </li>

@@ -4,7 +4,7 @@
  *
  *  @wordpress-plugin
  *  Plugin Name: Blog Category
- *  Plugin URI:  https://github.com/davidyeiser/detailer
+ *  Plugin URI:  https://tangram-studio.com/
  *  Description: Plugin to create custom Gutenberg block, Category Blog.
  *  Version:     0.1
  *  Author:      Tangram
