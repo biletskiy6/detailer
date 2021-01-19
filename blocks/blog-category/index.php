@@ -19,33 +19,28 @@ function register_dynamic_block() {
 
 function render_dynamic_block($attributes) {
   // Parse attributes
-  $book_details_imageObj = $attributes['image'];
-  $book_details_image_url = $book_details_imageObj['sizes']['full']['url'];
-  $book_details_image_alt_text = $book_details_imageObj['alt'];
-  $book_details_image_width = $book_details_imageObj['sizes']['full']['width'] / 2;
-
-  $book_details_have_read = $attributes['haveRead'];
-  $book_details_title = $attributes['title'];
-  $book_details_author = $attributes['author'];
-  $book_details_summary = $attributes['summary'];
-  $book_details_quotes = $attributes['quotes'];
   $category = $attributes['category'];
 
   ob_start(); // Turn on output buffering
 
   /* BEGIN HTML OUTPUT */
 ?>
-  <div class="block-book-details">
+  <div class="block-details">
       <div class="posts-by-category">
-          <h3>Posts from category:  <?php echo $category; ?></h3>
           <?php
           $args = array( 'posts_per_page' => -1, 'category_name' => $category );
-          $myposts = get_posts( $args );
-          foreach ( $myposts as $post ): ?>
+          $posts = get_posts( $args );
+          ?>
+          <?php if($posts): ?>
+          <h3>Posts from category:  <?php echo $category; ?></h3>
+          <?php foreach ( $posts as $post ): ?>
               <li>
                   <a href="<?php echo get_post_permalink($post->ID) ?>"><?php echo $post->post_title ?></a>
               </li>
           <?php endforeach; ?>
+          <?php else: ?>
+             <h4> No articles for this category </h4>
+          <?php endif; ?>
       </div>
   </div>
 <?php
