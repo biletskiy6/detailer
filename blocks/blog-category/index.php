@@ -1,29 +1,21 @@
 <?php
 
-namespace Tangram\Detailer\Blocks\BookDetails;
+namespace Tangram\BlogCategory\Blocks\BlogCategory;
 
 add_action('plugins_loaded', __NAMESPACE__ . '\register_dynamic_block');
 
 function register_dynamic_block() {
-  // Only load if Gutenberg is available.
   if (!function_exists('register_block_type')) {
     return;
   }
-
-  // Hook server side rendering into render callback
-  // Make sure name matches registerBlockType in ./index.js
-  register_block_type('tangram-detailer/blog-category', array(
+  register_block_type('tangram-custom/blog-category', array(
     'render_callback' => __NAMESPACE__ . '\render_dynamic_block'
   ));
 }
 
 function render_dynamic_block($attributes) {
-  // Parse attributes
   $category = $attributes['category'];
-
-  ob_start(); // Turn on output buffering
-
-  /* BEGIN HTML OUTPUT */
+  ob_start();
 ?>
   <div class="block-details">
       <div class="posts-by-category">
@@ -32,22 +24,21 @@ function render_dynamic_block($attributes) {
           $posts = get_posts( $args );
           ?>
           <?php if($posts): ?>
-          <h3>Posts from category:  <?php echo $category; ?></h3>
+          <ul>
           <?php foreach ( $posts as $post ): ?>
               <li>
                   <a href="<?php echo get_post_permalink($post->ID) ?>"><?php echo $post->post_title ?></a>
               </li>
           <?php endforeach; ?>
+          </ul>
           <?php else: ?>
-             <h4> No articles for this category </h4>
+             <h4> There are no articles for "<?php echo $category ?>" category: </h4>
           <?php endif; ?>
       </div>
   </div>
 <?php
-  /* END HTML OUTPUT */
+  $output = ob_get_contents();
+  ob_end_clean();
 
-  $output = ob_get_contents(); // collect output
-  ob_end_clean(); // Turn off ouput buffer
-
-  return $output; // Print output
+  return $output;
 }

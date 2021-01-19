@@ -7,9 +7,9 @@
 const {__} = wp.i18n
 const {registerBlockType} = wp.blocks
 const {Component} = wp.element
-registerBlockType('tangram-detailer/blog-category', {
+registerBlockType('tangram-custom/blog-category', {
     title: __('Blog Category'),
-    icon: 'format-aside',
+    icon: 'welcome-write-blog',
     category: 'common',
     keywords: [
         __('blog'),
@@ -21,8 +21,7 @@ registerBlockType('tangram-detailer/blog-category', {
         reusable: false,
         align: false
     },
-
-    // Set up data model for custom block
+    
     attributes: {
         categories: {
             type: 'array',
@@ -53,8 +52,10 @@ registerBlockType('tangram-detailer/blog-category', {
                     if(categories.length) {
                         this.props.setAttributes({
                             categories: {categories},
-                            category: isCategoryExists ? isCategoryExists : categories[0].slug
-                            // category: categories[0].slug
+                            category:
+                                isCategoryExists
+                                ? isCategoryExists
+                                : categories[0].slug
                         })
                     }
                 })
@@ -87,7 +88,7 @@ registerBlockType('tangram-detailer/blog-category', {
 
             return (
                 <div className={className}>
-                    <h6>Select a category from your blog below:</h6>
+                    <h6>Select a category from your blog in the list below:</h6>
                     <select onChange={(event) => this.handleChange(event)}>
                         {this.showCategories()}
                     </select>

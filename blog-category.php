@@ -5,7 +5,7 @@
  *  @wordpress-plugin
  *  Plugin Name: Blog Category
  *  Plugin URI:  https://tangram-studio.com/
- *  Description: Plugin to create custom Gutenberg block, Category Blog.
+ *  Description: Plugin to create a custom Gutenberg block
  *  Version:     0.1
  *  Author:      Tangram
  *  Author URI:  https://tangram-studio.com/
@@ -13,17 +13,14 @@
  *  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
-namespace Tangram\Detailer;
+namespace Tangram\BlogCategory;
 
-//  Exit if accessed directly.
 defined('ABSPATH') || exit;
 
-// Gets this plugin's absolute directory path.
 function _get_plugin_directory() {
   return __DIR__;
 }
 
-// Gets this plugin's URL.
 function _get_plugin_url() {
   static $plugin_url;
 
