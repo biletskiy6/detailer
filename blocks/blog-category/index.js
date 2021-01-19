@@ -7,7 +7,7 @@
 const {__} = wp.i18n
 const {registerBlockType} = wp.blocks
 const {Component} = wp.element
-registerBlockType('davidyeiser-detailer/blog-category', {
+registerBlockType('tangram-detailer/blog-category', {
     title: __('Blog Category'),
     icon: 'format-aside',
     category: 'common',

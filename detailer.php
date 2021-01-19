@@ -1,6 +1,6 @@
 <?php
 /**
- *  Bootstrap file to launch the plugin.
+ *
  *
  *  @wordpress-plugin
  *  Plugin Name: Blog Category
@@ -13,7 +13,7 @@
  *  License URI: http://www.gnu.org/licenses/gpl-2.0.html
  */
 
-namespace DavidYeiser\Detailer;
+namespace Tangram\Detailer;
 
 //  Exit if accessed directly.
 defined('ABSPATH') || exit;
