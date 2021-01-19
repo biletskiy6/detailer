@@ -32,7 +32,7 @@ function render_dynamic_block($attributes) {
           <?php endforeach; ?>
           </ul>
           <?php else: ?>
-             <h4> There are no articles for "<?php echo $category ?>" category: </h4>
+             <h4> There are no articles for "<?php echo $category ?>" category </h4>
           <?php endif; ?>
       </div>
   </div>
