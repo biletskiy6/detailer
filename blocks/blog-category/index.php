@@ -27,7 +27,9 @@ function render_dynamic_block($attributes) {
           <ul>
           <?php foreach ( $posts as $post ): ?>
               <li>
-                  <a href="<?php echo get_post_permalink($post->ID) ?>"><?php echo $post->post_title ?></a>
+                  <a href="<?php echo get_post_permalink($post->ID) ?>">
+                  <?php echo $post->post_title ?>
+                  </a>
               </li>
           <?php endforeach; ?>
           </ul>
